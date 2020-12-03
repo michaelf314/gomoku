@@ -7,14 +7,14 @@
 #board {
   margin:auto;
   border:4px solid black;
-  position:relative;
+  display:grid;
+  grid-template:repeat(19, 1fr) / repeat(19, 1fr);
 }
 
 .square {
   border:1px solid black;
   box-sizing:border-box;
   text-align:center;
-  position:absolute;
 }
 
 #start {

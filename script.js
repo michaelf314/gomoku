@@ -146,7 +146,7 @@ function reset() {
   for (let i = 0; i < 19; i++) {
     for (let j = 0; j < 19; j++) {
       let id = `s${i}_${j}`;
-      board.insertAdjacentHTML('beforeend', `<div class="square" id="${id}" data-row="${i}" data-col="${j}" style="width:${SQUARE_SIZE}px; height:${SQUARE_SIZE}px; line-height:${SQUARE_SIZE}px; top:${i*SQUARE_SIZE}px;left:${j*SQUARE_SIZE}px;"></div>`);
+      board.insertAdjacentHTML('beforeend', `<div class="square" id="${id}" data-row="${i}" data-col="${j}" style="width:${SQUARE_SIZE}px; height:${SQUARE_SIZE}px; line-height:${SQUARE_SIZE}px;"></div>`);
     }
   }
   board.addEventListener('click', click);
