@@ -1,8 +1,9 @@
-const SQUARE_SIZE = 25;
 const status = document.querySelector('#status');
 const board = document.querySelector('#board');
 const start = document.querySelector('#start');
+const SQUARE_SIZE = 25;
 board.style.width = board.style.height = SQUARE_SIZE*19+'px';
+const moveColor = '#DDF';
 let rows, cols, diags1, diags2;
 let turn = 0;
 let gameOver = false;
@@ -26,7 +27,7 @@ function move(r, c) {
     prevSquare.style.backgroundColor = 'transparent';
   let square = prevSquare = document.querySelector('#s'+r+'_'+c);
   square.innerHTML = xo[turn];
-  square.style.backgroundColor = '#DDD';
+  square.style.backgroundColor = moveColor;
   let d1 = r + c, d2 = r - c + 18;
   rows[turn][r] |= 1<<c; rows[2][r] |= 1<<c;
   cols[turn][c] |= 1<<r; cols[2][c] |= 1<<r;
@@ -146,7 +147,7 @@ function reset() {
   for (let i = 0; i < 19; i++) {
     for (let j = 0; j < 19; j++) {
       let id = `s${i}_${j}`;
-      board.insertAdjacentHTML('beforeend', `<div class="square" id="${id}" data-row="${i}" data-col="${j}" style="width:${SQUARE_SIZE}px; height:${SQUARE_SIZE}px; line-height:${SQUARE_SIZE}px;"></div>`);
+      board.insertAdjacentHTML('beforeend', `<div class="square" id="${id}" data-row="${i}" data-col="${j}"></div>`);
     }
   }
   board.addEventListener('click', click);
