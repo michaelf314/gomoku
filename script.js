@@ -1,8 +1,6 @@
 const status = document.querySelector('#status');
 const board = document.querySelector('#board');
 const start = document.querySelector('#start');
-const SQUARE_SIZE = 25;
-board.style.width = board.style.height = SQUARE_SIZE*19+'px';
 const moveColor = '#DDF';
 let rows, cols, diags1, diags2;
 let turn = 0;
@@ -24,10 +22,10 @@ function click(event) {
 
 function move(r, c) {
   if (prevSquare)
-    prevSquare.style.backgroundColor = 'transparent';
+    prevSquare.classList.remove('last-move');
   let square = prevSquare = document.querySelector('#s'+r+'_'+c);
   square.innerHTML = xo[turn];
-  square.style.backgroundColor = moveColor;
+  square.classList.add('last-move');
   let d1 = r + c, d2 = r - c + 18;
   rows[turn][r] |= 1<<c; rows[2][r] |= 1<<c;
   cols[turn][c] |= 1<<r; cols[2][c] |= 1<<r;
